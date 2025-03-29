@@ -1,0 +1,26 @@
+[build]
+  publish = "build"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/c14-calibration"
+  to = "/index.html"
+  status = 200
+
+# All routes handled by single page app
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Properly serve JavaScript files
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+# Properly serve CSS files
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Content-Type = "text/css"

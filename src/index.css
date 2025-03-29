@@ -1,0 +1,443 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #293742;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Improved form styling */
+.bp4-form-group label.bp4-label {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.bp4-numeric-input {
+  width: 100%;
+}
+
+/* Card shadow and hover effects */
+.bp4-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center top;
+}
+
+.bp4-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation classes */
+/* Input form transitions */
+.input-container {
+  position: relative;
+  min-height: 60px;
+  transition: height 0.4s ease-in-out;
+}
+
+.input-form-wrapper {
+  transform-origin: center top;
+  transition: opacity 0.4s ease-out, height 0.4s ease-in-out;
+}
+
+.form-hidden {
+  opacity: 0;
+}
+
+.form-visible {
+  opacity: 1;
+}
+
+.marine-warning-container {
+  transform-origin: top;
+  will-change: max-height, opacity;
+}
+
+/* Fix for Tag in marine warning */
+.marine-warning-container .bp4-tag {
+  width: 100%;
+  height: auto !important;
+  min-height: 30px;
+  white-space: normal !important;
+  text-align: left;
+}
+
+.input-summary-wrapper {
+  transform-origin: center top;
+  transition: opacity 0.4s ease-out;
+}
+
+.summary-hidden {
+  opacity: 0;
+}
+
+.summary-visible {
+  opacity: 1;
+}
+
+/* Results container transitions */
+.results-container {
+  transition: opacity 0.5s ease-out, 
+              max-height 0.5s ease-out;
+  will-change: opacity, max-height;
+}
+
+.results-content {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
+
+@keyframes expand {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+    pointer-events: none;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+}
+
+/* Input summary card hover effects */
+.bp4-card.bp4-interactive {
+  position: relative;
+  overflow: hidden;
+}
+
+.bp4-card.bp4-interactive:hover {
+  background-color: rgba(138, 155, 168, 0.1);
+  transform: translateY(-1px);
+}
+
+.bp4-card.bp4-interactive:active {
+  transform: translateY(0);
+}
+
+.bp4-card.bp4-interactive::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #106ba3;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.bp4-card.bp4-interactive:hover::after {
+  transform: scaleX(1);
+}
+
+/* Button hover effects */
+.bp4-button {
+  transition: transform 0.2s ease;
+}
+
+.bp4-button:hover {
+  transform: translateY(-1px);
+}
+
+/* Calibrate button animation */
+.calibrate-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.calibrate-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+}
+
+.input-section.animating-collapse .calibrate-button::after {
+  animation: shimmer 1s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.chart-container {
+  position: relative;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-title {
+  animation: fadeInDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.results-animating .bp4-divider,
+.results-animating .bp4-heading {
+  animation: fadeIn 0.7s ease-out;
+}
+
+/* Staggered animation for detailed results */
+.results-animating .bp4-tag,
+.results-animating strong {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px !important;
+  }
+  
+  .bp4-form-group label.bp4-label {
+    font-size: 0.9rem;
+  }
+  
+  /* Improved mobile layout */
+  html, body, #root {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  
+  /* Adjust form elements for smaller screens */
+  .bp4-form-group {
+    max-width: 100%;
+  }
+  
+  .bp4-radio-group label.bp4-radio {
+    line-height: 1.3;
+    margin-bottom: 8px;
+    min-height: auto;
+    word-break: break-word;
+  }
+  
+  /* Ensure Blueprint components don't overflow */
+  .bp4-card, .bp4-dialog, .bp4-popover {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Reduce horizontal padding where possible */
+  .bp4-card {
+    padding: 15px;
+  }
+  
+  /* Center-align the Help button on small screens */
+  .help-button {
+    margin: 0 auto;
+  }
+}
+
+/* Tooltip styling */
+.bp4-tooltip .bp4-popover-content {
+  padding: 10px 12px;
+  max-width: 300px;
+}
+
+/* Edit button styling */
+.edit-button {
+  transition: all 0.2s ease-in-out;
+  background-color: rgba(19, 124, 189, 0.4) !important;
+}
+
+.bp4-tag.bp4-interactive:hover .edit-button {
+  background-color: rgba(19, 124, 189, 0.6) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 2px rgba(16, 22, 26, 0.2);
+}
+
+/* Help Dialog styling */
+.help-panel-content {
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Help dialog responsive improvements */
+.help-dialog .bp4-dialog-body {
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.help-tabs .bp4-tab-list {
+  overflow-x: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  padding-bottom: 5px;
+}
+
+/* Removed conflicting selector */
+
+/* Make tab titles wrap if needed */
+.help-tabs .bp4-tab-list .bp4-tab {
+  flex: 1;
+  min-width: 60px;
+  max-width: 100px;
+  white-space: normal;
+  text-align: center;
+  height: auto;
+  min-height: 30px;
+  padding: 8px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+/* Custom styling for tabs */
+.bp4-tab-panel {
+  margin-top: 15px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.bp4-tab[aria-selected="true"] {
+  position: relative;
+}
+
+.bp4-tab[aria-selected="true"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #2B95D6;
+  animation: expandWidth 0.3s ease-in-out;
+}
+
+@keyframes expandWidth {
+  0% {
+    width: 0;
+    left: 50%;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* X-axis tick label animation */
+.recharts-cartesian-axis-tick-value,
+.recharts-cartesian-axis-label {
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+/* Format toggle button animation */
+.format-transitioning .bp4-button-text {
+  opacity: 0.5;
+}
+
+/* Ensure the text inside the button transitions smoothly */
+.date-format-text {
+  display: inline-block;
+  position: relative;
+}
+
+/* Help button responsive text */
+.help-text-mobile {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .help-text {
+    display: none;
+  }
+  
+  .help-text-mobile {
+    display: inline;
+  }
+}
+
+/* Animation for the axis title */
+.recharts-label {
+  transition: all 0.4s ease-in-out;
+}

@@ -1,0 +1,9 @@
+build/
+node_modules/
+.DS_Store
+screenshots/
+test-results/
+.git-bak/
+CLAUDE.md
+playwright-report/
+replace.md

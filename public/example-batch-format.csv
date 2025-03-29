@@ -1,0 +1,6 @@
+sample_id,radiocarbon_age,uncertainty,reservoir_correction,curve
+Sample A,3500,30,0,IntCal20
+Sample B,4220,45,0,IntCal20
+Shell Sample,2750,35,400,Marine20
+Southern Wood,1850,25,0,SHCal20
+Site X Charcoal,8450,60,0,IntCal20
